@@ -9,10 +9,16 @@ $(document).ready(function() {
     $(".save-article").on("click", function(event) {
         event.preventDefault();
 
-        db.scrapedData.update(
-            {title: title},
-            {$set: { saved: true}}
-        )
+        var id = $(this).attr("id")
+
+
+
+
+
+        // db.scrapedData.update(
+        //     {title: title},
+        //     {$set: { saved: true}}
+        // )
     })
         
         
