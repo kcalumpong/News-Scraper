@@ -1,5 +1,5 @@
 .jumbotron {
-    background-color:bisque !important; 
+    background-color: rgb(247, 239, 230) !important; 
     font-family: 'News Cycle', sans-serif;
     text-align: center;
 }
@@ -22,8 +22,12 @@
 }
 
 .read-article, .save-article {
-    background-color: bisque;
+    background-color: rgb(247, 239, 230);
     font-family: 'Nanum Myeongjo', serif;
     font-size: 16px;
 }
+
+/* .container-article {
+    border: 1px solid grey;
+} */
 

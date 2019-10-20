@@ -10,11 +10,11 @@
 
 <div class="nameAndTitle">
   {{#each found}}
-  <div id="{{_id}}" class="container">
+  <div id="{{_id}}" class="container-article">
     <h2>{{this.title}}</h2>
     {{!-- <a href="/readArticle/{{this._id}}" class="read-article">READ ARTICLE</a> --}}
     <a href={{this.link}}><button class="read-article">READ ARTICLE</button></a>
-    <a href="#" id="{{_id}}"><button class="save-article">SAVE ARTICLE FOR LATER</button></a>
+    <button class="save-article" data-id="{{_id}}">SAVE ARTICLE FOR LATER</button>
  
   </div>
   {{/each}}

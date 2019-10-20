@@ -1,9 +1,11 @@
 var cheerio = require("cheerio");
 var axios = require("axios");
 var mongojs = require("mongojs");
-
+var mongoose = require("mongoose")
 var databaseUrl = "scraper";
 var collections = ["scrapedData"]
+
+var db = require("../models")
 
 
 var db = mongojs(databaseUrl, collections);
@@ -23,6 +25,16 @@ module.exports = function (app) {
             }
         });
     });
+
+    app.get("/saved", function(req,res) {
+        db.scrapedData.find({saved:true}, function(err,found) {
+        if (err) {
+            console.log(err)
+        }else {
+            res.json(found)
+        }
+        })
+    })
 
     //scraping into scraper
     app.get("/scrape", function (req, res) {
@@ -46,15 +58,9 @@ module.exports = function (app) {
                     }
                     if (found.length > 0) {
                         console.log("more than 0", found.length)
-                    
+
                     } else {
                         if (title && link) {
-
-                            // let article = {
-                            //     title:title,
-                            //     link: link,
-                            //     saved: false
-                            // }
 
                             db.scrapedData.insert({
                                 title: title,
@@ -71,30 +77,28 @@ module.exports = function (app) {
                                 })
                         }
                     }
-
                 });
-
             });
         })
-        // res.send("Scrape Complete")
         res.redirect("/")
     })
 
-    app.get("/articles/saved", function(req, res) {
-        db.scrapedData.find({saved: true}).sort({'_id': -1})
-        .then(function(err,article) {
-            if (err) {
-                console.error(err)
-            }else {
-                res.render("home", {article:article})
-            }
-        })
-    })
+    app.put("/articles/save/:id", function (req, res) {
+        db.scrapedData.update({ _id: req.params}, { $set: { saved: true } })
+            .then(function (dbArticle) {
+                res.json(dbArticle);
+            })
+            .catch(function (err) {
+                res.json(err);
+            });
+    });
 
-    // app.get("/articles/saved", function(req,res) {
-    //     db.scrapedData.find({})
+    // app.put("/articles/save/:id", function(req,res) {
+    //     console.log("PUT req....")
+    //     console.log(req.body)
+    //     console.log(req.params)
     // })
-    
+
 }
- 
+
 
