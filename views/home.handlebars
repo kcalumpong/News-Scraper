@@ -1,0 +1,21 @@
+
+<div class="jumbotron jumbotron-fluid">
+<div class="caption">
+  <h1 class="display-4">HuffPost Top Stories</h1>
+  <p>Read the lasted headline stories of Politics, Entertainment and Life.</p>
+</div>
+</div>
+
+
+
+<div class="nameAndTitle">
+  {{#each found}}
+  <div id="{{_id}}" class="container">
+    <h2>{{this.title}}</h2>
+    {{!-- <a href="/readArticle/{{this._id}}" class="read-article">READ ARTICLE</a> --}}
+    <a href={{this.link}}><button class="read-article">READ ARTICLE</button></a>
+    <a href="#" id="{{_id}}"><button class="save-article">SAVE ARTICLE FOR LATER</button></a>
+ 
+  </div>
+  {{/each}}
+</div>

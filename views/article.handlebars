@@ -1,0 +1,14 @@
+<div class="row">
+    <h3>{{article.title}}</h3>
+    <h5>{{body}}</h5>
+</div>
+
+<div class="row">
+    <form action="/comment/{{article._id}}" method="POST" class="comment-section">
+    <h5>Comment on this Article</h5>
+    <textarea></textarea>
+    <button>SUBMIT</button>
+
+    </form>
+</div>
+

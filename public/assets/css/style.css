@@ -1,0 +1,29 @@
+.jumbotron {
+    background-color:bisque !important; 
+    font-family: 'News Cycle', sans-serif;
+    text-align: center;
+}
+
+.nameAndTitle {
+    align-content: center;
+    text-align: center;
+}
+
+.nameAndTitle h2 {
+    font-family: 'News Cycle', sans-serif;
+    margin-top: 35px;
+    font-size: 22px;
+}
+
+.nameAndTitle a {
+    font-family: 'Nanum Myeongjo', serif;
+    text-decoration: none;
+    color: black;
+}
+
+.read-article, .save-article {
+    background-color: bisque;
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 16px;
+}
+
